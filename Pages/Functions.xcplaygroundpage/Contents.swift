@@ -11,14 +11,23 @@ greet(person: "Bob", day: "Tuesday")
 //
 //   Remove the `day` parameter. Add a parameter to include today’s lunch
 //   special in the greeting.
-//
+
+
+func greet(person: String, special: String) -> String {
+    return "Hello \(person), today's lunch special is \(special)."
+}
+greet(person: "Bob", special: "Tuna with Rice")
+
+
 
 // Omitting the prefix
 
-func greet(_ person: String, day: String) -> String {
+func greet(_ person: String,_ day: String) -> String {
     return "Hello \(person), today is \(day)."
 }
-greet("John", day: "Wednesday")
+greet("John", "Wednesday")
+
+
 
 
 // Argument Labels and Parameter Names
@@ -48,8 +57,15 @@ func someFunction(argumentLabel parameterName: Int) {
 // Add an argument label of `to` to the `person` parameter name,
 // and update the `greet` method accordingly.
 
+func greet(to person: String, from hometown: String) -> String {
+    return "Hello \(person)!  Glad you could visit from \(hometown)."
+    // return for one liners optional
+}
+greet(to: "Bill", from: "Cupertino")
+
 // Default Parameter Values
 
 func someFunction(parameterWithoutDefault: Int, parameterWithDefault: Int = 12) {}
 someFunction(parameterWithoutDefault: 3, parameterWithDefault: 6) // parameterWithDefault is 6
 someFunction(parameterWithoutDefault: 4) // parameterWithDefault is 12
+
