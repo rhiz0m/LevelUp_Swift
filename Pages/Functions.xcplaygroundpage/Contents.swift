@@ -131,3 +131,21 @@ hasAnyMatches(list: numbers, condition: lessThanTen)
 // Links that help
 //
 // - https://docs.swift.org/swift-book/LanguageGuide/Functions.html
+
+func anyLessThankTen(list: [Int], aFunction: (Int) -> Bool) -> Bool {
+    for item in list {
+        if aFunction(item) {
+            return true
+        }
+    }
+    return false
+}
+
+var myList = [10, 20, 15]
+
+func betweenOneAndTen(num: Int) -> Bool {
+//  alternative (1...10).contains(num)
+    num >= 1 && num <= 10
+}
+
+anyLessThankTen(list: myList, aFunction: betweenOneAndTen(num:))
