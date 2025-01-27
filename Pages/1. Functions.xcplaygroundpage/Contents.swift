@@ -141,14 +141,14 @@ func anyLessThankTen(list: [Int], aFunction: (Int) -> Bool) -> Bool {
     return false
 }
 
-var myList = [10, 20, 15]
+var myList = [5, 20, 15]
 
 func betweenOneAndTen(num: Int) -> Bool {
 //  alternative (1...10).contains(num)
     num >= 1 && num <= 10
 }
 
-anyLessThankTen(list: myList, aFunction: betweenOneAndTen(num:))
+anyLessThankTen(list: myList, aFunction: betweenOneAndTen)
 
 /*
   ___             _   _              _                  _
@@ -168,6 +168,15 @@ Write a function named min2 that takes two Int values, a and b, and returns the 
 */
 
 
+func min2(_ a: Int, _ b: Int) -> Int {
+    // Alt. a < b ? a : b
+    
+    var numList = [a, b]
+    return numList.min()!
+}
+
+min2(15, 20)
+
 /*
 🕹 Last Digit
 
@@ -178,6 +187,12 @@ Write a function that takes an Int and returns it’s last digit. Name the funct
  */
 
 
+func lastDigit (_ digit: Int) -> Int {
+    abs(digit % 10)
+}
+
+lastDigit(12345)
+
 /*
 🕹 First Numbers
 
@@ -186,6 +201,12 @@ Write a function named first that takes an Int named N and returns an array with
  > first(3)
  > [1, 2, 3]
 */
+
+func first (to_ N: Int) -> [Int] {
+   Array(1...N)
+}
+
+first(to_: 7)
 
 /*
 🕹 Reverse
@@ -196,6 +217,11 @@ Write a function named reverse that takes an array of integers named numbers as 
  > [3, 2, 1]
  */
 
+func reverse (numbers: [Int]) -> [Int] {
+    numbers.reversed()
+}
+
+reverse(numbers: [1, 2, 3, 4, 5])
 
 /*
 🕹 Sum
@@ -205,3 +231,13 @@ Write a function named sum that takes an array of integers and returns their sum
  > sum(of: [1, 2, 3])
  > 6
  */
+
+func sum(of numbers: [Int]) -> Int {
+    
+    // Alt. numbers.reduce(0, +)
+    numbers.reduce(0, { x, y in
+            x + y
+    })
+}
+
+sum(of: [1, 2, 3])
