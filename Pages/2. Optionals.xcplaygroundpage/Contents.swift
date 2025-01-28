@@ -17,7 +17,13 @@ import Foundation
 Unwrap the following Optional using the if let statement
 */
 
-let firstname: String? = "Sam"
+let possibleFirstName: String? = "Sam"
+
+if let firstName = possibleFirstName {
+    print("the name is: \(firstName)")
+} else {
+    print("There are no name aviable")
+}
 
 /*
 🕹 Unwrap with guard
@@ -29,4 +35,30 @@ enum MyError: Error {
     case invalidUsername
 }
 
-let lastname: String? = "Flynn"
+
+
+
+// let lastName: String? = "Flynn"
+let lastname: String? = nil
+
+func tryName(name: String?) {
+    guard let lastName = name else {
+        print("No name aviable: \(MyError.invalidUsername)")
+        return
+    }
+    print("The name is \(lastName)")
+}
+
+tryName(name: lastname)
+
+do {
+    guard let lName = lastname else {
+        throw MyError.invalidUsername
+    }
+    print(lName)
+} catch {
+    print("An error occurred: \(error)")
+}
+
+
+
